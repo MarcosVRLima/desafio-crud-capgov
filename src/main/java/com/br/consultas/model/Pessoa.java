@@ -1,19 +1,37 @@
 package com.br.consultas.model;
 
 import jakarta.persistence.*;
+import java.util.HashMap;
+import java.util.Map;
 
-@MappedSuperclass
-public abstract class Pessoa {
+@Entity
+@Table(name = "pessoas")
+public class Pessoa{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+	@Column(nullable = false, length = 100)
     private String nome;
 
+	@Column(unique = true, nullable = false, length = 14)
     private String cpf;
 
+	@Column(length = 15)
     private String telefone;
+	
+	// FK opcional para Usuario (login, senha)
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+    
+    // Map de roles: chave = tipo do papel, valor = ID do registro do papel
+    @ElementCollection
+    @CollectionTable(name = "pessoa_roles", joinColumns = @JoinColumn(name = "pessoa_id"))
+    @MapKeyColumn(name = "tipo_role") // MEDICO, PACIENTE, ATENDENTE
+    @Column(name = "id_role")
+    private Map<String, Long> idsRoles = new HashMap<>();
 
     // Getters e Setters
 	public Long getId() {
@@ -46,5 +64,21 @@ public abstract class Pessoa {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Map<String, Long> getIdsRoles() {
+		return idsRoles;
+	}
+
+	public void setIdsRoles(Map<String, Long> idsRoles) {
+		this.idsRoles = idsRoles;
 	}
 }

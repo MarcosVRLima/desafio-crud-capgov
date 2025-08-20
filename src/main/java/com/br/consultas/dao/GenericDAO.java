@@ -10,7 +10,7 @@ public class GenericDAO<T> {
 	private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("consultasPU");
     private final Class<T> entityClass;
     
-    public GenericDAO(Class<T> entityClass) {
+    protected GenericDAO(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
     

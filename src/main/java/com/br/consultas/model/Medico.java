@@ -5,12 +5,16 @@ import java.util.List;
 
 @Entity
 @Table(name = "medicos")
-public class Medico extends Pessoa{
+public class Medico{
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 	
 	private String especialidade;
 
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
-    private List<Consulta> consultas;
+    private List<Agendamento> agendamento;
 
     // Getters e Setters
 	public String getEspecialidade() {
@@ -21,11 +25,11 @@ public class Medico extends Pessoa{
 		this.especialidade = especialidade;
 	}
 
-	public List<Consulta> getConsultas() {
-		return consultas;
+	public List<Agendamento> getAgendamento() {
+		return agendamento;
 	}
 
-	public void setConsultas(List<Consulta> consultas) {
-		this.consultas = consultas;
+	public void setAgendamento(List<Agendamento> agendamento) {
+		this.agendamento = agendamento;
 	}
 }
