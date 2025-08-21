@@ -14,6 +14,14 @@ public class Paciente{
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
     private List<Agendamento> agendamento;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public List<Agendamento> getAgendamento() {
 		return agendamento;
 	}

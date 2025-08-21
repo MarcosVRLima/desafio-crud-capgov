@@ -8,17 +8,20 @@ public class Usuario {
 	
 	@Id
     private Long id;
-	
-	@OneToOne
-    @MapsId // indica que o id deste Usuario vem da Pessoa
-    @JoinColumn(name = "id")
-    private Pessoa pessoa;
 
 	private String email;
 	
 	private String login;
 	
 	private String senha;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getEmail() {
 		return email;

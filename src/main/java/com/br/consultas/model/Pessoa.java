@@ -20,11 +20,6 @@ public class Pessoa{
 
 	@Column(length = 15)
     private String telefone;
-	
-	// FK opcional para Usuario (login, senha)
-    @OneToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
     
     // Map de roles: chave = tipo do papel, valor = ID do registro do papel
     @ElementCollection
@@ -64,14 +59,6 @@ public class Pessoa{
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	public Map<String, Long> getIdsRoles() {
