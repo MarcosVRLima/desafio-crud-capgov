@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Cadastro de Pessoa</title>
+</h:head>
+<h:body>
+
+<h:form>
+    <h:panelGrid columns="2">
+        <h:outputLabel for="nome" value="Nome:"/>
+        <h:inputText id="nome" value="#{cadastroBean.pessoa.nome}" required="true"/>
+
+        <h:outputLabel for="cpf" value="CPF:"/>
+        <h:inputText id="cpf" value="#{cadastroBean.pessoa.cpf}" required="true"/>
+
+        <h:outputLabel for="telefone" value="Telefone:"/>
+        <h:inputText id="telefone" value="#{cadastroBean.pessoa.telefone}"/>
+        
+        <h:outputLabel for="email" value="Email:"/>
+        <h:inputText id="email" value="#{cadastroBean.usuario.email}"/>
+        
+        <h:outputLabel for="login" value="Login:"/>
+        <h:inputText id="login" value="#{cadastroBean.usuario.login}"/>
+        
+        <h:outputLabel for="senha" value="Senha:"/>
+        <h:inputText id="senha" value="#{cadastroBean.usuario.senha}"/>
+    </h:panelGrid>
+
+    <h:commandButton value="Salvar" action="#{cadastroBean.salvar}"/>
+    <h:commandButton value="Cancelar" action="listar-pessoas.xhtml?faces-redirect=true"/>
+</h:form>
+
+</h:body>
+</html>

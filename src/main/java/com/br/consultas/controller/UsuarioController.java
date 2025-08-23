@@ -2,6 +2,7 @@ package com.br.consultas.controller;
 
 import com.br.consultas.dao.UsuarioDAO;
 import com.br.consultas.model.Usuario;
+
 import java.util.List;
 
 public class UsuarioController {
@@ -30,5 +31,20 @@ public class UsuarioController {
 
     public List<Usuario> listarUsuario() {
         return usuarioDAO.findAll();
+    }
+    
+    public Usuario buscarUsuarioPorEmail(String email) {
+    	if(email != null && !email.isBlank()) {
+    		
+	    	List<Usuario> usuarios = usuarioDAO.findAll();
+	    	
+	    	for(Usuario usuario : usuarios) {
+	    		if(usuario.getEmail().equals(email)) {
+	    			return usuario;
+	    		}
+	    	}
+	    }
+    	
+    	return null;
     }
 }

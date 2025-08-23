@@ -2,6 +2,9 @@ package com.br.consultas.controller;
 
 import com.br.consultas.dao.PessoaDAO;
 import com.br.consultas.model.Pessoa;
+
+import com.br.consultas.utils.HashUtil;
+
 import java.util.List;
 
 public class PessoaController {
@@ -13,6 +16,7 @@ public class PessoaController {
     }
 
     public void salvarPessoa(Pessoa pessoa) {
+    	pessoa.setId(HashUtil.gerarId(pessoa.getCpf()));
         pessoaDAO.save(pessoa);
     }
 
