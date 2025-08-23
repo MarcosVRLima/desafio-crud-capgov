@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<ui:composition template="/views/template.xhtml">
+
+    <ui:define name="title">Painel do Admin</ui:define>
+
+    <ui:define name="content">
+        <h1>Bem-vindo, #{loginBean.pessoa.nome}!</h1>
+        <p>Use o menu acima para navegar.</p>
+    </ui:define>
+
+</ui:composition>
+</html>

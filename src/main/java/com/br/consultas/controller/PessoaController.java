@@ -28,7 +28,7 @@ public class PessoaController {
         pessoaDAO.delete(pessoa);
     }
 
-    public Pessoa buscarPessoaPorId(Long id) {
+    public Pessoa buscarPessoaPorId(String id) {
         return pessoaDAO.findById(id);
     }
 

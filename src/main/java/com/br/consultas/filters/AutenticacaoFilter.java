@@ -42,10 +42,10 @@ public class AutenticacaoFilter implements Filter {
 
         // Se não estiver logado e tentar acessar qualquer página diferente do login
         if (usuario == null && !pagina.endsWith("index.xhtml") && !pagina.endsWith("cadastrar-pessoa.xhtml")) {
-            res.sendRedirect(req.getContextPath() + "/views/index.xhtml");
+            res.sendRedirect(req.getContextPath() + "/views/pages/index.xhtml");
          // Usuário logado tenta acessar a página de login
         } else if (usuario != null && pagina.endsWith("index.xhtml")) {
-            res.sendRedirect(req.getContextPath() + "/views/home.xhtml");
+            res.sendRedirect(req.getContextPath() + "/views/pages/home.xhtml");
         } else {
             chain.doFilter(request, response); // usuário logado ou acessando login, segue normalmente
         }

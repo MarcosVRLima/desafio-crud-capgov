@@ -7,9 +7,11 @@ import jakarta.inject.Named;
 
 import java.io.Serializable;
 
+import com.br.consultas.model.Pessoa;
 import com.br.consultas.model.Usuario;
 import com.br.consultas.utils.HashUtil;
 import com.br.consultas.controller.UsuarioController;
+import com.br.consultas.controller.PessoaController;
 
 @Named("loginBean")
 @SessionScoped
@@ -22,8 +24,11 @@ public class LoginBean implements Serializable {
 
     private Usuario novoUsuario = new Usuario();
     private Usuario usuarioLogado;
+    
+    private Pessoa pessoa;
 
     private UsuarioController usuarioController = new UsuarioController();
+    private PessoaController pessoaController = new PessoaController();
 
     // Login
     public String logar() {
@@ -35,8 +40,10 @@ public class LoginBean implements Serializable {
         	// Cria sessão
             FacesContext.getCurrentInstance().getExternalContext()
                         .getSessionMap().put("usuarioLogado", u);
+            
+            pessoa = pessoaController.buscarPessoaPorId(u.getId());
 
-            return "/views/home.xhtml?faces-redirect=true";
+            return "/views/pages/home.xhtml?faces-redirect=true";
         }
 
         FacesContext.getCurrentInstance().addMessage(null,
@@ -57,6 +64,7 @@ public class LoginBean implements Serializable {
     public String logout() {
     	FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         usuarioLogado = null;
+        pessoa = null;
         return "index.xhtml?faces-redirect=true"; // redireciona para a tela de login
     }
 
@@ -68,7 +76,15 @@ public class LoginBean implements Serializable {
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
 
-    public Usuario getNovoUsuario() { return novoUsuario; }
+    public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public Usuario getNovoUsuario() { return novoUsuario; }
     public void setNovoUsuario(Usuario novoUsuario) { this.novoUsuario = novoUsuario; }
 
     public Usuario getUsuarioLogado() { return usuarioLogado; }

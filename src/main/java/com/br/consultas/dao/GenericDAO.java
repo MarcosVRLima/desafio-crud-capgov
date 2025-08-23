@@ -45,6 +45,13 @@ public class GenericDAO<T> {
         return entity;
     }
     
+    public T findById(String id) {
+        EntityManager em = emf.createEntityManager();
+        T entity = em.find(entityClass, id);
+        em.close();
+        return entity;
+    }
+    
     public List<T> findAll() {
         EntityManager em = emf.createEntityManager();
         List<T> list = em.createQuery("FROM " + entityClass.getSimpleName(), entityClass).getResultList();
