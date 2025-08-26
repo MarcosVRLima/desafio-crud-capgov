@@ -21,7 +21,7 @@ public class Pessoa{
     private String telefone;
     
     // Map de roles: chave = tipo do papel, valor = ID do registro do papel
-    @ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "pessoa_roles", joinColumns = @JoinColumn(name = "pessoa_id"))
     @MapKeyColumn(name = "tipo_role") // MEDICO, PACIENTE, ATENDENTE
     @Column(name = "id_role")

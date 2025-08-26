@@ -1,0 +1,11 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/views/template.xhtml">
+
+    <ui:define name="content">
+        <ui:decorate template="/views/includes/gerenciamento-pessoas.xhtml">
+            <ui:param name="titulo" value="Atendentes"/>
+            <ui:param name="bean" value="#{atendenteBean}"/>
+        </ui:decorate>
+    </ui:define>
+</ui:composition>

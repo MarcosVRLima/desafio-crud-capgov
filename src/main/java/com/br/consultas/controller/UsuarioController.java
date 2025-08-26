@@ -25,7 +25,7 @@ public class UsuarioController {
     	usuarioDAO.delete(usuario);
     }
 
-    public Usuario buscarUsuarioPorId(Long id) {
+    public Usuario buscarUsuarioPorId(String id) {
         return usuarioDAO.findById(id);
     }
 

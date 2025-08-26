@@ -52,14 +52,6 @@ public class LoginBean implements Serializable {
         return null; // permanece na mesma página para mostrar a mensagem
     }
     
-    // Redirecionar
-    public String redirecionarSeLogado() {
-        if (usuarioLogado != null) {
-            return "home.xhtml?faces-redirect=true";
-        }
-        return null; // continua na página de login
-    }
-    
     // método de logout
     public String logout() {
     	FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
