@@ -19,7 +19,7 @@
 
         <!-- Tabela -->
         <h:form id="tabelaForm">
-            <h:dataTable value="#{bean.lista}" var="pessoa"
+            <h:dataTable value="#{bean.lista}" var="pessoa" varStatus="status"
                          styleClass="table table-striped table-bordered">
 
                 <h:column>

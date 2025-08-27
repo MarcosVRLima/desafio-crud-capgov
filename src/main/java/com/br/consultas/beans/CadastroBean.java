@@ -50,8 +50,9 @@ public class CadastroBean implements Serializable{
 	// Salvar ou atualizar pessoa
     public String salvar() {
     	Map<String, Long> role = new HashMap<>();
-    	role.put("ADMIN", null);
+    	role.put("ADMIN", -1L);
     	pessoa.setIdsRoles(role);
+    	System.out.println(pessoa.getIdsRoles().containsKey("ADMIN"));
     	pessoaController.salvarPessoa(pessoa);
     	
     	
