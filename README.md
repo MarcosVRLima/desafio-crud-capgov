@@ -7,7 +7,7 @@ Sistema web para agendamento e gerenciamento de consultas médicas, desenvolvido
 ##  STATUS DO PROJETO
 
 -   ✅ **CRUD de Pessoas**: Gerenciamento de Atendentes, Pacientes e Médicos (100% funcional).
--   ✅ **Autenticação**: Sistema de login e logout funcional para usuários do tipo "Atendente".
+-   ✅ **Autenticação**: Sistema de login e logout funcional (Pensado para o usuário ADMIN).
 -   🟡 **CRUD de Agendamento**:
     -   Criação e listagem de agendamentos: **Funcional**.
     -   Edição e exclusão de agendamentos: **Não implementado**.
@@ -91,16 +91,16 @@ Você pode implantar a aplicação de duas formas:
 
 ### 5. Primeiro Acesso e Cadastro do Admin
 
-A aplicação precisa de pelo menos um usuário "Atendente" para que o login funcione.
+A aplicação precisa de pelo menos um usuário para que o login funcione.
 
 **a. Cadastre o Primeiro Usuário**
    - Inicie o servidor Tomcat.
    - Acesse a seguinte URL para ir diretamente à página de cadastro:
      **http://localhost:8080/consulta-agendamento/views/pages/cadastrar-pessoa.xhtml**
-   - Preencha o formulário e crie um usuário marcando o tipo como **ATENDENTE**.
+   - Preencha o formulário e crie um usuário do tipo ADMIN.
 
 **b. Realize o Login**
-   - Após cadastrar o atendente, acesse a página de login:
+   - Após cadastrar o admin, acesse a página de login:
      **http://localhost:8080/consulta-agendamento/views/pages/index.xhtml**
    - Use o email e a senha do atendente que você acabou de criar para acessar o sistema.
 
